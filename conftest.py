@@ -2,8 +2,10 @@ import pytest
 import pytest_html
 from slugify import slugify
 import os
+from utilitarios.banco_dados import criar_engine, montar_connection_string
 
 STORAGE_FILE = "playwright/auth/state.json"
+
 
 @pytest.fixture(scope='session')
 def contexto(browser):
@@ -21,7 +23,6 @@ def contexto(browser):
     contexto.tracing.start(screenshots=True, snapshots=True, sources=True)
     yield contexto
 
-
     os.makedirs(os.path.dirname(STORAGE_FILE), exist_ok=True)
     contexto.tracing.stop(path='trace/trace.zip')
     if not os.path.isfile(STORAGE_FILE):
@@ -37,6 +38,12 @@ def page(contexto):
     pagina.set_default_navigation_timeout(30000)
     yield pagina
     pagina.close()
+
+@pytest.fixture(scope='session')
+def banco():
+    url = montar_connection_string('sqlite', database='loja.db')
+    return criar_engine(url)
+
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
