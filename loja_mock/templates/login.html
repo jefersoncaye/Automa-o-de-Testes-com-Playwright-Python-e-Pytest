@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Loja Mock</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container-login">
+        <h1>Loja Mock</h1>
+        <form id="form-login">
+            <div class="campo">
+                <label for="input-email">E-mail</label>
+                <input type="email" id="input-email" name="email" required>
+            </div>
+            <div class="campo">
+                <label for="input-senha">Senha</label>
+                <input type="password" id="input-senha" name="senha" required>
+            </div>
+            <button type="submit" id="botao-entrar">Entrar</button>
+        </form>
+        <div id="mensagem-erro" class="mensagem-erro" hidden></div>
+    </div>
+
+    <script src="/static/js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos - Loja Mock</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <h1>Loja Mock</h1>
+        <nav>
+            <a href="/produtos">Produtos</a>
+            <a href="/carrinho">Carrinho (<span id="contador-carrinho">0</span>)</a>
+            <button id="botao-sair">Sair</button>
+        </nav>
+    </header>
+
+    <main class="container-produtos">
+        <div class="filtros">
+            <label for="select-categoria">Categoria:</label>
+            <select id="select-categoria">
+                <option value="">Todas</option>
+                <option value="roupas">Roupas</option>
+                <option value="eletronicos">Eletronicos</option>
+                <option value="acessorios">Acessorios</option>
+            </select>
+        </div>
+
+        <div id="mensagem-erro" class="mensagem-erro" hidden></div>
+
+        <div id="lista-produtos" class="lista-produtos"></div>
+    </main>
+
+    <script src="/static/js/produtos.js"></script>
+</body>
+</html>

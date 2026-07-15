@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - Loja Mock</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <h1>Loja Mock</h1>
+        <nav>
+            <a href="/produtos">Produtos</a>
+            <a href="/carrinho">Carrinho</a>
+            <button id="botao-sair">Sair</button>
+        </nav>
+    </header>
+
+    <main class="container-carrinho">
+        <div id="mensagem-erro" class="mensagem-erro" hidden></div>
+
+        <p id="carrinho-vazio" hidden>Seu carrinho esta vazio.</p>
+
+        <table id="tabela-carrinho" class="tabela-carrinho" hidden>
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Preco</th>
+                    <th>Quantidade</th>
+                    <th>Subtotal</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody id="corpo-tabela-carrinho"></tbody>
+        </table>
+
+        <div id="total-carrinho" class="total-carrinho"></div>
+    </main>
+
+    <script src="/static/js/carrinho.js"></script>
+</body>
+</html>
