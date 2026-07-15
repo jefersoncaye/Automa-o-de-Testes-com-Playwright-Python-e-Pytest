@@ -1,7 +1,7 @@
 import uuid
 from functools import wraps
 
-from flask import Flask, jsonify, render_template, request, send_from_directory, session
+from flask import Flask, jsonify, redirect, render_template, request, send_from_directory, session, url_for
 
 app = Flask(__name__)
 app.secret_key = "chave-secreta-fixa-para-desenvolvimento"
@@ -49,11 +49,15 @@ def pagina_login():
 
 @app.route("/produtos")
 def pagina_produtos():
+    if not session.get("autenticado"):
+        return redirect(url_for("pagina_login"))
     return render_template("produtos.html")
 
 
 @app.route("/carrinho")
 def pagina_carrinho():
+    if not session.get("autenticado"):
+        return redirect(url_for("pagina_login"))
     return render_template("carrinho.html")
 
 
